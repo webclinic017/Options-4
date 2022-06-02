@@ -78,7 +78,7 @@ class OptionPricing:
             if wk_day<4:
                 t_delta = 4-wk_day
             elif wk_day==4:
-                if START.time()>=START.replace(hour=16,minute=0,second=0,microscond=0).time():
+                if START.time()>=START.replace(hour=16,minute=0,second=0,microsecond=0).time():
                     t_delta = 7
                 else:
                     t_delta = 0
@@ -114,7 +114,7 @@ class OptionPricing:
         print("_"*40)
         print(f"Start: ${round(_s,2)} | End: ${round(_e,2)} >> + ${round(_e-_s,2)}")
 
-        print(f"Expected %P/L: {round((_e/_s-1)*100,1)}% In {round((END-START).total_seconds()/60,1)} minutes")
+        print(f"Expected %P/L: {round((_e/_s-1)*100,1)}% In {round((END-START).total_seconds()/60,1)} minutes | {END.strftime('%Y-%m-%d %H:%M:%S')}")
 
 
     def option_pricing_analyzer(self,TYPE='call', EXPIRATION='2022-05-13',K=395, S1=390,START='2022-05-12 12:15:26',S2=396,END='2022-05-12 14:00:30',r=2.99,stdev=0.4) -> None:
